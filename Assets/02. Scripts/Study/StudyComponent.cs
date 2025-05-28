@@ -2,43 +2,30 @@ using UnityEngine;
 
 public class StudyComponent : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject obj;
+    public GameObject obj;
 
-    [SerializeField]
-    private Mesh mesh;
-
-    [SerializeField]
-    private Material material;
-
-    private int number1 = 1;
-    private int number2 = 2;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Mesh msh;
+    public Material mat;
+    
     void Start()
     {
-        Debug.Log(AddMethod(number1, number2));
-        CreateCube("Star");
+        obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        
+        CreateCube();
+        CreateCube("Hello World");
     }
 
-    private void CreateCube(string name = "Cube")
+    public void CreateCube(string name = "Cube")
     {
-        obj = new GameObject();
-        obj.name = name;
-
+        obj = new GameObject(name);
+        
         obj.AddComponent<MeshFilter>();
-        obj.GetComponent<MeshFilter>().mesh = mesh;
-
+        obj.GetComponent<MeshFilter>().mesh = msh;
+        
         obj.AddComponent<MeshRenderer>();
-        obj.GetComponent<MeshRenderer>().material = material;
-
+        obj.GetComponent<MeshRenderer>().material = mat;
+        
         obj.AddComponent<BoxCollider>();
     }
-
-    private int AddMethod(int a, int b)
-    {
-        int result = a + b;
-
-        return result;
-    }
+    
 }

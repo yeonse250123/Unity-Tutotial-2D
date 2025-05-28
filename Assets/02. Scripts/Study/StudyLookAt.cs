@@ -2,29 +2,32 @@ using UnityEngine;
 
 public class StudyLookAt : MonoBehaviour
 {
-    [SerializeField] private Transform targetTf;
-    [SerializeField] private Transform turretHead;
+    public Transform targetTf;
+    public Transform turretHead;
 
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform firePos;
+    public GameObject bulletPrefab; // ì´ì•Œ í”„ë¦¬íŒ¹
+    public Transform firePos; // ë°œì‚¬ ìœ„ì¹˜
 
-    [SerializeField] private float timer;
-    [SerializeField] private float cooldownTimer;
-
-    void Start() // 1¹ø ½ÇÇà -> ¹«¾ùÀÎ°¡¸¦ ¼ÂÆÃÇÏ´Â ±â´É
+    public float timer;
+    public float cooldownTime;
+    
+    
+    void Start() // 1ë²ˆ ì‹¤í–‰ -> ë¬´ì—‡ì¸ê°€ë¥¼ ì…‹íŒ…í•˜ëŠ” ê¸°ëŠ¥
     {
-        targetTf = GameObject.FindGameObjectWithTag("Player").transform;
+        targetTf = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
     }
-
-    void Update() // ¹«¾ùÀÎ°¡¸¦ ¹Ù¶óº¸´Â ±â´É
+    
+    void Update() // ë¬´ì—‡ì¸ê°€ë¥¼ ë°”ë¼ë³´ëŠ” ê¸°ëŠ¥
     {
         turretHead.LookAt(targetTf);
 
         timer += Time.deltaTime;
-        if (timer >= cooldownTimer)
+        if (timer >= cooldownTime)
         {
             timer = 0f;
-            Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+            Instantiate(bulletPrefab, firePos.position, firePos.rotation); // ì´ì•Œ ìƒì„±
         }
+        
     }
+    
 }

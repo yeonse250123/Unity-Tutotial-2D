@@ -4,34 +4,40 @@ public class StudyTransform : MonoBehaviour
 {
     public float moveSpeed = 10f;
     public float rotateSpeed = 70f;
-
+    
     void Update()
     {
-        // ¿ùµå ¹æÇâÀ¸·Î ÀÌµ¿
+        // transform.rotation = transform.rotation * Quaternion.Euler(0f, 30f * Time.deltaTime, 0f);
+
+        // transform.rotation = Quaternion.Euler(0f, 30f * Time.deltaTime, 0f) * transform.rotation;
+        
+        // // ì›”ë“œ ë°©í–¥ìœ¼ë¡œ ì´ë™
         // transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
-
-        // ·ÎÄÃ ¹æÇâÀ¸·Î ÀÌµ¿
+        
+        // // ë¡œì»¬ ë°©í–¥ìœ¼ë¡œ ì´ë™
         // transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-
-        // ¿ùµå ¹æÇâÀ» ÀÌµ¿
+        
+        // // ì›”ë“œ ë°©í–¥ì„ ì´ë™
         // transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.World);
+        
+        // // ì›”ë“œ ë°©í–¥ìœ¼ë¡œ íšŒì „
+        // transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y + rotateSpeed * Time.deltaTime, 0f);
+        
+        // // ë¡œì»¬ ë°©í–¥ìœ¼ë¡œ íšŒì „
+        // transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime); // Space.Self ìƒëµ
 
-        // ¿ùµå ¹æÇâÀ¸·Î È¸Àü
-        // transform.rotation = Quaternion.Euler(localX, transform.eulerAngles.y + rotateSpeed * Time.deltaTime, localZ);
-
-        // ·ÎÄÃ ¹æÇâÀ¸·Î È¸Àü
-        //transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime); // Space.Self »ı·«
-
-        // ¿ùµå ¹æÇâÀ¸·Î È¸Àü
+        // // ì›”ë“œ ë°©í–¥ìœ¼ë¡œ íšŒì „
         // transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime, Space.World);
 
-        // Æ¯Á¤ À§Ä¡ÀÇ ÁÖº¯À» È¸Àü
-        transform.RotateAround(Vector3.zero, Vector3.up, rotateSpeed * Time.deltaTime);
+        // // íŠ¹ì • ìœ„ì¹˜ì˜ ì£¼ë³€ì„ íšŒì „
+        // transform.RotateAround(Vector3.zero, Vector3.up, rotateSpeed * Time.deltaTime);
+        // transform.RotateAround(new Vector3(0, 0, 0), new Vector3(0, 1, 0), rotateSpeed * Time.deltaTime);
 
+        // // íŠ¹ì • ìœ„ì¹˜ë¥¼ ë°”ë¼ë³´ë©° íšŒì „
+        // transform.LookAt(Vector3.zero);
 
-
-
-
+        // // ê²Œì„ì˜¤ë¸Œì íŠ¸ í¬ê¸° ë³€ê²½
+        // transform.localScale = Vector3.one * 3f;
 
     }
 }

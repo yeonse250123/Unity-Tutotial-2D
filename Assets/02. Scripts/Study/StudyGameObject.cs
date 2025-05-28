@@ -2,31 +2,17 @@ using UnityEngine;
 
 public class StudyGameObject : MonoBehaviour
 {
-    [SerializeField] private GameObject amongus;
-
-    private void Awake()
+    public GameObject prefab;
+    
+    void Awake()
     {
-        CreateAmonus();
+        CreateAmongus();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void CreateAmongus()
     {
-
+        GameObject obj = Instantiate(prefab);
+        obj.name = "ì–´ëª½ì–´ìŠ¤ ìºë¦­í„°";
     }
-
-    private void CreateAmonus()
-    {
-        GameObject obj = Instantiate(amongus);
-        obj.name = "¾î¸ù¾î½º Ä³¸¯ÅÍ";
-
-        Transform objTf = obj.transform;
-        int count = objTf.childCount;
-
-        //Debug.Log($"Ä³¸¯ÅÍÀÇ ÀÚ½Ä ¿ÀºêÁ§Æ® ¼ö : {count}");
-
-        //Debug.Log($"Ä³¸¯ÅÍÀÇ Ã¹¹øÂ° ÀÚ½Ä ¿ÀºêÁ§Æ®ÀÇ ÀÌ¸§ : {objTf.GetChild(0).name}");
-
-        //Debug.Log($"Ä³¸¯ÅÍÀÇ ¸¶Áö¸· ÀÚ½Ä ¿ÀºêÁ§Æ®ÀÇ ÀÌ¸§ : {objTf.GetChild(objTf.childCount -1).name}");
-    }
+    
 }

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float bulletSpeed;
-
+    public float bulletSpeed = 100f;
+    
     void Update()
     {
-        transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+        transform.position += transform.right * bulletSpeed * Time.deltaTime;
     }
 }
