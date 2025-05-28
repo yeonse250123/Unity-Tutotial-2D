@@ -7,6 +7,9 @@ TagManager:
   - Character
   - Enemy
   - Monster
+  - TrackingObject
+  - Actors
+  - Ground
   layers:
   - Default
   - TransparentFX
