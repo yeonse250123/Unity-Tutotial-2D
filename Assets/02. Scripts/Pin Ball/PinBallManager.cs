@@ -5,16 +5,20 @@ public class PinBallManager : MonoBehaviour
     public Rigidbody2D leftBarRb;
     public Rigidbody2D rightBarRb;
 
+    public int totalScore = 0;
+
+    public float pinTorqueForce;
+
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
-            leftBarRb.AddTorque(300f);
+            leftBarRb.AddTorque(pinTorqueForce);
         else
-            leftBarRb.AddTorque(-250f);
+            leftBarRb.AddTorque(-pinTorqueForce);
 
         if (Input.GetKey(KeyCode.RightArrow))
-            rightBarRb.AddTorque(-300f);
+            rightBarRb.AddTorque(-pinTorqueForce);
         else
-            rightBarRb.AddTorque(250f);
+            rightBarRb.AddTorque(pinTorqueForce);
     }
 }
