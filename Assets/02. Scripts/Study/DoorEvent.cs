@@ -1,16 +1,28 @@
+using System;
 using UnityEngine;
 
 public class DoorEvent : MonoBehaviour
 {
-    private Animator Animator;
+    private Animator animator;
 
-    private void Start()
+    void Start()
     {
-        Animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
-        Animator.SetTrigger("Open");
+        if (other.CompareTag("Player"))
+        {
+            animator.SetTrigger("Open");
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            animator.SetTrigger("Close");
+        }
     }
 }

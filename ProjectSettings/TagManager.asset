@@ -7,8 +7,6 @@ TagManager:
   - Character
   - Enemy
   - Monster
-  - TrackingObject
-  - Actors
   - Ground
   - Score10
   - Score30

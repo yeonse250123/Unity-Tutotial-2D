@@ -16,5 +16,6 @@ public class Material_LoopMap : MonoBehaviour
         Vector2 offset = Vector2.right * offsetSpeed * Time.deltaTime;
 
         renderer.material.SetTextureOffset("_MainTex", renderer.material.mainTextureOffset + offset);
+        
     }
 }
