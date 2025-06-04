@@ -1860,7 +1860,7 @@ MonoBehaviour:
   audioSource: {fileID: 1350552614}
   jumpClip: {fileID: 8300000, guid: 2be18ad6d922eda4aac1a19b59e3d2c9, type: 3}
   bgmClip: {fileID: 8300000, guid: 132d6276de1d9914d808c04046b5af24, type: 3}
-  bgmVolume: 0.5
+  bgmVolume: 0.3
 --- !u!1 &1401908701
 GameObject:
   m_ObjectHideFlags: 0
