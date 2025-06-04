@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
+using Cat;
 
 public class CatController : MonoBehaviour
 {
+    public SoundManager soundManager;
+
     private Rigidbody2D catRb;
     private Animator catAnim;
 
@@ -25,6 +28,8 @@ public class CatController : MonoBehaviour
 
             catRb.AddForceY(jumpPower, ForceMode2D.Impulse);
             jumpCount++; // 1씩 증가
+
+            soundManager.OnJumpSound();
         }
     }
 
