@@ -8,6 +8,8 @@ namespace Cat
         public AudioClip jumpClip;
         public AudioClip bgmClip;
 
+        public float bgmVolume;
+
         private void Start()
         {
             SetBGMSound();
@@ -18,7 +20,7 @@ namespace Cat
             audioSource.clip = bgmClip; // 오디오 소스에 사운드 파일 설정
             audioSource.playOnAwake = true; // 시작할 때 자동 재생
             audioSource.loop = true; // 반복 기능
-            audioSource.volume = 0.8f; // 소리 음량
+            audioSource.volume = bgmVolume; // 소리 음량
 
             audioSource.Play(); // 시작
 
