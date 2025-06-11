@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 2
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -377,7 +378,12 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -262614082
+    uuid:
+      value0: 4099571766
+      value1: 0
+      value2: 0
+      value3: 0
+    guid: -195395530
     name: idle outline
     layerFlags: 0
     layerType: 0
@@ -510,3 +516,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 21, y: 35}
+  previousTextureSize: {x: 128, y: 128}
