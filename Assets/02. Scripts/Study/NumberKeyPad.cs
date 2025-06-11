@@ -4,15 +4,17 @@ public class NumberKeyPad : MonoBehaviour
 {
     public Animator doorAnim;
     public GameObject doorLock;
-
-    public string password;
-    public string keyPadNumber;
+    
+    public string password; // ë¹„ë°€ë²ˆí˜¸ ì„¤ì •
+    public string keyPadNumber; // ì…ë ¥í•œ ìˆ«ì
 
     public void OnInputNumber(string numString)
     {
-        keyPadNumber += numString;
+        keyPadNumber += numString; // keyPadNumber = keyPadNumber + numString;
 
-        Debug.Log($"{numString} ÀÔ·Â -> ÇöÀç ÀÔ·Â : {keyPadNumber}");
+        Debug.Log($"{numString} ì…ë ¥ -> í˜„ì¬ ì…ë ¥ : {keyPadNumber}");
+
+        Debug.Log(keyPadNumber.Length); // ì…ë ¥í•œ ê¸¸ì´
     }
 
     public void OnCheckNumber()
@@ -20,13 +22,13 @@ public class NumberKeyPad : MonoBehaviour
         if (keyPadNumber == password)
         {
             doorAnim.SetTrigger("Door Open");
-
+            
             doorLock.SetActive(false);
         }
         else
         {
             keyPadNumber = "";
-            Debug.Log("ºñ¹Ğ ¹øÈ£ ¿À·ù");
+            Debug.Log("ë¹„ë°€ ë²ˆí˜¸ ì˜¤ë¥˜");
         }
     }
 }

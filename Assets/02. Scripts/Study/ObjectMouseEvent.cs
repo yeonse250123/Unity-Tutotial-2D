@@ -7,12 +7,12 @@ public class ObjectMouseEvent : MonoBehaviour
     {
         Debug.Log("Mouse Enter");
     }
-
+    
     private void OnMouseOver()
     {
         Debug.Log("Mouse Over");
     }
-
+    
     void OnMouseDown()
     {
         Debug.Log("Mouse Down");
@@ -20,11 +20,9 @@ public class ObjectMouseEvent : MonoBehaviour
 
     void OnMouseDrag()
     {
-        Debug.Log(Input.mousePosition);
-
         Debug.Log("Mouse Drag");
     }
-
+    
     void OnMouseUp()
     {
         Debug.Log("Mouse Up");
@@ -39,5 +37,5 @@ public class ObjectMouseEvent : MonoBehaviour
     {
         Debug.Log("Mouse Exit");
     }
-
+    
 }

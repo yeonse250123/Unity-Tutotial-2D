@@ -6,15 +6,25 @@ namespace Cat
 {
     public class UIManager : MonoBehaviour
     {
+        public SoundManager soundManager;
+        
         public GameObject playObj;
         public GameObject introUI;
-
+        public GameObject playUI;
+        
         public TMP_InputField inputField;
         public TextMeshProUGUI nameTextUI;
-
+        
         public Button startButton;
 
-        private void Start()
+        void Awake()
+        {
+            playObj.SetActive(false);
+            introUI.SetActive(true);
+            playUI.SetActive(false);
+        }
+        
+        void Start()
         {
             startButton.onClick.AddListener(OnStartButton);
         }
@@ -24,16 +34,18 @@ namespace Cat
             bool isNoText = inputField.text == "";
 
             if (isNoText)
-            {
-                Debug.Log("ÀÔ·ÂÇÑ ÅØ½ºÆ® ¾øÀ½");
-            }
+                Debug.Log("ì…ë ¥í•œ í…ìŠ¤íŠ¸ ì—†ìŒ");
             else
             {
-                playObj.SetActive(true);
-                introUI.SetActive(false);
-
-                Debug.Log($"{nameTextUI} ÀÔ·Â");
                 nameTextUI.text = inputField.text;
+                soundManager.SetBGMSound("Play");
+                
+                GameManager.isPlay = true;
+                
+                playObj.SetActive(true);
+                playUI.SetActive(true);
+                introUI.SetActive(false);
+                
             }
         }
     }

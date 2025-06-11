@@ -20,8 +20,6 @@ public class DoorEvent2 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             doorLock.SetActive(true);
-
-            //anim.SetTrigger(openKey);
         }
     }
 
@@ -30,8 +28,6 @@ public class DoorEvent2 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             doorLock.SetActive(false);
-
-            //anim.SetTrigger(closeKey);
         }
     }
 }

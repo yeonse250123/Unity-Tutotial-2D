@@ -2,26 +2,26 @@ using UnityEngine;
 
 public class MouseEvent : MonoBehaviour
 {
-    private void Update()
+    void Update() 
     {
-        //MouseClickEvent();
+        // MouseClickEvent();
     }
 
     private void MouseClickEvent()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) 
         {
-            Debug.Log("GetMouseButtonDown");
+            Debug.Log("Mouse Button Down");
         }
-
-        if (Input.GetMouseButton(0))
+        
+        if (Input.GetMouseButton(0)) 
         {
-            Debug.Log("GetMouseButton");
+            Debug.Log("Mouse Button");
         }
-
-        if (Input.GetMouseButtonUp(0))
+        
+        if (Input.GetMouseButtonUp(0)) 
         {
-            Debug.Log("GetMouseButtonUp");
+            Debug.Log("Mouse Button Up");
         }
     }
 }
