@@ -18,13 +18,26 @@ public class CatController : MonoBehaviour
     public float jumpPower = 30f;
     public float limitPower = 25f;
     
-    void Start()
+    void Awake()
     {
         catRb = GetComponent<Rigidbody2D>();
         catAnim = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        transform.localPosition = Vector3.zero;
+
+        GetComponent<CircleCollider2D>().enabled = true;
+        soundManager.audioSource.mute = false;
+    }
+
     void Update()
+    {
+        Jump();
+    }
+
+    private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 10)
         {
