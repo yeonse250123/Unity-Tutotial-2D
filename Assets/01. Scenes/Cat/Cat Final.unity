@@ -277,9 +277,11 @@ MonoBehaviour:
   playObj: {fileID: 2064406243}
   introUI: {fileID: 737256670}
   playUI: {fileID: 768960067}
+  videoPanel: {fileID: 1122447014}
   inputField: {fileID: 1245090875}
   nameTextUI: {fileID: 1956974220}
   startButton: {fileID: 652781534}
+  reStartButton: {fileID: 1285645774}
 --- !u!1 &147467271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,8 +2612,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1446234028}
-  - {fileID: 1685934449}
   - {fileID: 1122447017}
+  - {fileID: 1685934449}
   m_Father: {fileID: 387807593}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3043,7 +3045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1122447015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4653,7 +4655,7 @@ MonoBehaviour:
   m_AssetsPPU: 100
   m_RefResolutionX: 1920
   m_RefResolutionY: 1080
-  m_CropFrame: 0
+  m_CropFrame: 4
   m_GridSnapping: 0
   m_FilterMode: 0
   m_UpscaleRT: 0

@@ -68,7 +68,7 @@ public class CatController : MonoBehaviour
             if (GameManager.score == 10) // 사과를 10개 먹어서 성공
             {
                 fadeUI.SetActive(true);
-                fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white);
+                fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.white, true);
                 this.GetComponent<CircleCollider2D>().enabled = false;
 
                 //Invoke("HappyVideo", 5f);
@@ -86,7 +86,7 @@ public class CatController : MonoBehaviour
 
             gameOverUI.SetActive(true); // 게임 오버 켜기
             fadeUI.SetActive(true); // 페이드 켜기
-            fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.black); // 페이드 실행
+            fadeUI.GetComponent<FadeRoutine>().OnFade(3f, Color.black, true); // 페이드 실행
             this.GetComponent<CircleCollider2D>().enabled = false;
 
             //Invoke("SadVideo", 5f);
@@ -106,13 +106,18 @@ public class CatController : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
 
         videoManager.VideoPlayer(isHappy);
+        yield return new WaitForSeconds(1f);
 
-        yield return new WaitUntil(() => videoManager.vPlayer.isPlaying);
+        var newColor = isHappy ? Color.white : Color.black;
+        fadeUI.GetComponent<FadeRoutine>().OnFade(3f, newColor, false);
+        soundManager.audioSource.Stop();
 
+        yield return new WaitForSeconds(3f);
         fadeUI.SetActive(false);
         gameOverUI.SetActive(false);
+        Debug.Log("영상 재생 완료");
 
-        soundManager.audioSource.mute = true;
+        transform.parent.gameObject.SetActive(false); // PLAY 오브젝트 Off
     }
 
     //private void HappyVideo()
@@ -124,7 +129,7 @@ public class CatController : MonoBehaviour
 
     //    soundManager.audioSource.mute = true;
     //}
-    
+
     //private void SadVideo()
     //{
     //    videoManager.VideoPlayer(false);
@@ -134,5 +139,5 @@ public class CatController : MonoBehaviour
 
     //    soundManager.audioSource.mute = true;
     //}
-    
+
 }
