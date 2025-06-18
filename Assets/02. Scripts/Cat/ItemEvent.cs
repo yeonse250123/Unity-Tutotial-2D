@@ -15,22 +15,24 @@ public class ItemEvent : MonoBehaviour
 
     private Vector3 initPos;
 
-    private void Awake()
+    void Awake()
     {
         initPos = transform.localPosition;
     }
-
-    private void OnEnable()
+    
+    void OnEnable()
     {
         SetRandomSetting(initPos.x);
     }
-
+    
     void Update()
     {
         transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-        
+
         if (transform.position.x <= -returnPosX)
+        {
             SetRandomSetting(returnPosX);
+        }
     }
 
     private void SetRandomSetting(float posX)
@@ -43,6 +45,9 @@ public class ItemEvent : MonoBehaviour
         particle.SetActive(false);
         
         colliderType = (ColliderType)Random.Range(0, 3);
+        
+        colliderType = ColliderType.Pipe;
+        
         
         switch (colliderType)
         {

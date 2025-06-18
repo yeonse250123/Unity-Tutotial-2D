@@ -6,10 +6,10 @@ namespace Cat
     public class GameManager : MonoBehaviour
     {
         public SoundManager soundManager;
-
+        
         public TextMeshProUGUI playTimeUI;
         public TextMeshProUGUI scoreUI;
-
+        
         private static float timer;
         public static int score; // 사과를 먹은 개수
         public static bool isPlay;
@@ -18,7 +18,7 @@ namespace Cat
         {
             soundManager.SetBGMSound("Intro");
         }
-
+        
         void Update()
         {
             if (!isPlay)

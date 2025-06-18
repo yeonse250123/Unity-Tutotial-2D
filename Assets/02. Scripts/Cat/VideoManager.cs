@@ -6,22 +6,25 @@ namespace Cat
     public class VideoManager : MonoBehaviour
     {
         public GameObject videoPanel;
-
+        
         public VideoPlayer vPlayer;
         public VideoClip[] vClips;
 
-        private void Start()
+        void Start()
         {
             vPlayer = GetComponent<VideoPlayer>();
         }
 
-        public void VideoPlayer(bool isHappy)
+        public void VideoPlay(bool isHappy)
         {
             videoPanel.SetActive(true);
+            
+            var endingClip = isHappy ? vClips[0] : vClips[1];
 
-            var ending = isHappy ? vClips[0] : vClips[1];
-            vPlayer.clip = ending;
+            vPlayer.clip = endingClip;
             vPlayer.Play();
+
+            Debug.Log("영상 시작 완료");
         }
     }
 }
