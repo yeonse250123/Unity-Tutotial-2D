@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public abstract class Monster : MonoBehaviour
 {
+    private SpawnManager spawnManager;
+
     private SpriteRenderer sRenderer;
     private Animator animator;
-    
+
     [SerializeField] protected float hp = 3f;
     [SerializeField] protected float moveSpeed = 3f;
 
@@ -17,6 +20,8 @@ public abstract class Monster : MonoBehaviour
 
     void Start()
     {
+        spawnManager = FindFirstObjectByType<SpawnManager>();
+
         sRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         
@@ -33,6 +38,9 @@ public abstract class Monster : MonoBehaviour
         Move();
     }
 
+    /// <summary>
+    /// 몬스터가 좌우로 이동하는 기능
+    /// </summary>
     void Move()
     {
         if (!isMove)
@@ -52,6 +60,11 @@ public abstract class Monster : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 몬스터 피격 및 데스 기능
+    /// </summary>
+    /// <param name="damage"></param>
+    /// <returns></returns>
     private IEnumerator Hit(float damage)
     {
         if (isHit)
@@ -62,9 +75,11 @@ public abstract class Monster : MonoBehaviour
 
         hp -= damage;
 
-        if (hp <= 0)
+        if (hp <= 0) // 몬스터 죽음
         {
             animator.SetTrigger("Death");
+
+            spawnManager.DropCoin(transform.position);
 
             yield return new WaitForSeconds(3f);
             Destroy(gameObject);
