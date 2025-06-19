@@ -65,7 +65,7 @@ public abstract class Monster : MonoBehaviour
     /// </summary>
     /// <param name="damage"></param>
     /// <returns></returns>
-    private IEnumerator Hit(float damage)
+    public IEnumerator Hit(float damage)
     {
         if (isHit)
             yield break;
