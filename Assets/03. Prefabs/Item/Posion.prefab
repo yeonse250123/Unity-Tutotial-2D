@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4306478877630475512}
   - component: {fileID: 5903894659294734655}
   - component: {fileID: 5995755886716633296}
+  - component: {fileID: -5065950367443490755}
   m_Layer: 10
   m_Name: Posion
   m_TagString: Untagged
@@ -152,3 +153,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5065950367443490755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9173878638313798226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78006013a0aff3041b26a67ed893a47c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionType: 1
