@@ -34,6 +34,14 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            int scaleX = h > 0 ? 1 : -1;
+            transform.localScale = new Vector3(scaleX, 1, 1);
+
+            //if (h > 0)
+            //    transform.localScale = new Vector3(1, 1, 1);
+            //else if (h < 0)
+            //    transform.localScale = new Vector3(-1, 1, 1);
+
             animator.SetBool("Run", true);
 
             var dir = new Vector3(h, v, 0).normalized;
@@ -66,6 +74,15 @@ public class PlayerController : MonoBehaviour
         {
             Monster monster = collision.GetComponent<Monster>();
             StartCoroutine(monster.Hit(1));
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<IItem>() != null)
+        {
+            IItem item = collision.gameObject.GetComponent<IItem>();
+            item.Get();
         }
     }
 }

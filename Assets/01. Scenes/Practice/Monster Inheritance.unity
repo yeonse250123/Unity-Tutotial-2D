@@ -746,6 +746,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 1099171032393081214, guid: 7416c07facd9e7649af017333f83e95b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4422880275112827298, guid: 7416c07facd9e7649af017333f83e95b, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5396559166433775179, guid: 7416c07facd9e7649af017333f83e95b, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7344459515678008722, guid: 7416c07facd9e7649af017333f83e95b, type: 3}
       propertyPath: hitBox
       value: 
