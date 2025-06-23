@@ -1,10 +1,10 @@
-using System;
+ï»¿using System;
 using UnityEngine;
 
 public class Coin : MonoBehaviour, IItem
 {
     private Inventory inventory;
-
+    
     public enum CoinType { Gold, Green, Blue }
     public CoinType coinType;
 
@@ -13,10 +13,10 @@ public class Coin : MonoBehaviour, IItem
     void Start()
     {
         inventory = FindFirstObjectByType<Inventory>();
-
+        
         Obj = gameObject;
     }
-
+    
     void OnMouseDown()
     {
         Get();
@@ -26,10 +26,10 @@ public class Coin : MonoBehaviour, IItem
 
     public void Get()
     {
-        Debug.Log($"{this.name}À» È¹µæÇß½À´Ï´Ù.");
+        Debug.Log($"{this.name}ì„ íšë“í–ˆìŠµë‹ˆë‹¤.");
 
-        inventory.AddItem(this);
-
+        inventory.AddItem(this, transform);
+        
         gameObject.SetActive(false);
     }
 }

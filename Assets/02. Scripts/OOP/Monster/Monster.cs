@@ -1,27 +1,33 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.VFX;
 
 public abstract class Monster : MonoBehaviour
 {
-    private SpawnManager spawnManager;
-
+    private SpawnManager spawner;
+    
     private SpriteRenderer sRenderer;
     private Animator animator;
-
-    [SerializeField] protected float hp = 3f;
-    [SerializeField] protected float moveSpeed = 3f;
+    
+    protected float hp = 3f;
+    protected float moveSpeed = 3f;
 
     private int dir = 1;
+    public int Dir
+    {
+        get { return dir; }
+        set { dir = value; }
+    }
+    
+    
     private bool isMove = true;
     private bool isHit = false;
-
+    
     public abstract void Init();
 
-    void Start()
+    void Awake()
     {
-        spawnManager = FindFirstObjectByType<SpawnManager>();
-
+        spawner = FindFirstObjectByType<SpawnManager>();
+        
         sRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         
@@ -37,10 +43,7 @@ public abstract class Monster : MonoBehaviour
     {
         Move();
     }
-
-    /// <summary>
-    /// 몬스터가 좌우로 이동하는 기능
-    /// </summary>
+    
     void Move()
     {
         if (!isMove)
@@ -49,49 +52,47 @@ public abstract class Monster : MonoBehaviour
         transform.position += Vector3.right * dir * moveSpeed * Time.deltaTime;
 
         if (transform.position.x > 8f)
-        {
             dir = -1;
-            sRenderer.flipX = true;
-        }
         else if (transform.position.x < -8f)
-        {
             dir = 1;
-            sRenderer.flipX = false;
-        }
+        
+        SetFlip(dir);
     }
 
-    /// <summary>
-    /// 몬스터 피격 및 데스 기능
-    /// </summary>
-    /// <param name="damage"></param>
-    /// <returns></returns>
+    public void SetFlip(int dir)
+    {
+        if (dir > 0)
+            sRenderer.flipX = false;
+        else
+            sRenderer.flipX = true;
+    }
+    
     public IEnumerator Hit(float damage)
     {
         if (isHit)
             yield break;
-
+            
         isHit = true;
         isMove = false;
-
+        
         hp -= damage;
-
-        if (hp <= 0) // 몬스터 죽음
+        
+        if (hp <= 0)
         {
             animator.SetTrigger("Death");
-
-            spawnManager.DropCoin(transform.position);
-
+            
+            spawner.DropCoin(transform.position); // 코인 생성
+            
             yield return new WaitForSeconds(3f);
             Destroy(gameObject);
-
+            
             yield break;
         }
-
+        
         animator.SetTrigger("Hit");
 
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.65f);
         isHit = false;
         isMove = true;
     }
-    
 }

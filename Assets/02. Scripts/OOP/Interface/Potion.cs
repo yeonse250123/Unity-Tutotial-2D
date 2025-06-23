@@ -1,4 +1,4 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 
 public class Potion : MonoBehaviour, IItem
 {
@@ -6,14 +6,14 @@ public class Potion : MonoBehaviour, IItem
 
     public enum PotionType { Gold, Hp, Mp }
     public PotionType potionType;
-
+    
     void Start()
     {
         inventory = FindFirstObjectByType<Inventory>();
-
+        
         Obj = gameObject;
     }
-
+    
     void OnMouseDown()
     {
         Get();
@@ -23,10 +23,10 @@ public class Potion : MonoBehaviour, IItem
 
     public void Get()
     {
-        Debug.Log($"{this.name}¿ª »πµÊ«ﬂΩ¿¥œ¥Ÿ.");
-
-        inventory.AddItem(this);
-
+        Debug.Log($"{this.name}ÏùÑ ÌöçÎìùÌñàÏäµÎãàÎã§.");
+        
+        inventory.AddItem(this, transform);
+        
         gameObject.SetActive(false);
     }
 }
