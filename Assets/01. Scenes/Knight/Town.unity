@@ -10293,7 +10293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &577918346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35594,7 +35594,7 @@ GameObject:
   - component: {fileID: 1117404415}
   m_Layer: 0
   m_Name: Knight_Joystick
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35633,8 +35633,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.5}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0, y: 0.1}
+  m_Size: {x: 0.5, y: 0.5}
   m_Direction: 0
 --- !u!50 &1117404411
 Rigidbody2D:
@@ -35649,7 +35649,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 1
+  m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -35768,10 +35768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1e89f1233cf694cb29419573f50633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpButton: {fileID: 577918347}
-  atkButton: {fileID: 1426853434}
-  moveSpeed: 3
-  jumpPower: 13
+  moveSpeed: 4
 --- !u!1 &1184557500
 GameObject:
   m_ObjectHideFlags: 0
@@ -42816,7 +42813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1426853433
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43006,6 +43003,7 @@ GameObject:
   - component: {fileID: 1503690325}
   - component: {fileID: 1503690324}
   - component: {fileID: 1503690327}
+  - component: {fileID: 1503690328}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -43131,6 +43129,19 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1503690328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503690323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af49a506818281f44a020995bb0cf2a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 3, z: 0}
 --- !u!1 &1586732376
 GameObject:
   m_ObjectHideFlags: 0
