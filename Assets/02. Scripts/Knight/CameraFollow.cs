@@ -3,6 +3,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     private Transform target;
+    
     [SerializeField] private Vector3 offset;
     [SerializeField] private float smoothSpeed = 5f;
 
@@ -21,7 +22,7 @@ public class CameraFollow : MonoBehaviour
 
         smoothPos.x = Mathf.Clamp(smoothPos.x, minBound.x, maxBound.x);
         smoothPos.y = Mathf.Clamp(smoothPos.y, minBound.y, maxBound.y);
-
+        
         transform.position = smoothPos;
     }
 }
