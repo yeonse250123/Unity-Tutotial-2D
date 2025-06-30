@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -10,16 +10,16 @@ public class TypingText : MonoBehaviour
 
     void Awake()
     {
-        currText = textUI.text; // À¯´ÏÆ¼ »ó¿¡ ÀûÈù ±Û¾¾¸¦ ÀúÀå
+        currText = textUI.text; // ìœ ë‹ˆí‹° ìƒì— ì íŒ ê¸€ì”¨ë¥¼ ì €ì¥
     }
-
+    
     void OnEnable()
     {
         textUI.text = string.Empty;
 
         StartCoroutine(TypingRoutine());
     }
-
+    
     IEnumerator TypingRoutine()
     {
         int textCount = currText.Length;

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,15 +7,18 @@ public class InteractionEvent : MonoBehaviour
     public enum InteractionType { SIGN, DOOR, NPC }
     public InteractionType type;
 
-    public GameObject popup;
+    public SoundController soundController;
+
+    public GameObject popUp;
 
     public FadeRoutine fade;
-
+    
     public GameObject map;
     public GameObject house;
 
     public Vector3 inDoorPos;
     public Vector3 outDoorPos;
+    public bool isHouse;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,11 +28,11 @@ public class InteractionEvent : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            popup.SetActive(false);
+            popUp.SetActive(false);
         }
     }
 
@@ -38,26 +41,35 @@ public class InteractionEvent : MonoBehaviour
         switch (type)
         {
             case InteractionType.SIGN:
-                popup.SetActive(true);
+                popUp.SetActive(true);
                 break;
             case InteractionType.DOOR:
                 StartCoroutine(DoorRoutine(player));
                 break;
             case InteractionType.NPC:
-                popup.SetActive(true);
+                popUp.SetActive(true);
                 break;
         }
     }
 
     IEnumerator DoorRoutine(Transform player)
     {
-        yield return StartCoroutine(fade.Fade(1f, Color.black, true));
+        soundController.EventSoundPlay("Door Open");
+        
+        yield return StartCoroutine(fade.Fade(3f, Color.black, true));
 
-        player.transform.position = inDoorPos;
+        map.SetActive(isHouse);
+        house.SetActive(!isHouse);
 
-        map.SetActive(false);
-        house.SetActive(true);
+        var pos = isHouse ? outDoorPos : inDoorPos; 
+        player.transform.position = pos;
+        
+        isHouse = !isHouse;
+        
+        soundController.EventSoundPlay("Door Close");
+        
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(fade.Fade(3f, Color.black, false));
 
-        yield return StartCoroutine(fade.Fade(1f, Color.black, false));
     }
 }

@@ -19,7 +19,7 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 80, y: -10, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 670, y: 120, z: 0}
+  m_ExitPosition: {x: 580, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 4848286162993226504}
 --- !u!206 &-6407908040813897906
@@ -40,7 +40,7 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 7b5eaa5d5091344489b061626e657b8b, type: 2}
-    m_Threshold: 0.05714286
+    m_Threshold: 0.034285717
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -48,7 +48,7 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 7b5eaa5d5091344489b061626e657b8b, type: 2}
-    m_Threshold: 0.11428572
+    m_Threshold: 0.06857143
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -56,7 +56,7 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 7b5eaa5d5091344489b061626e657b8b, type: 2}
-    m_Threshold: 0.17142859
+    m_Threshold: 0.10285715
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -64,7 +64,7 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 7b5eaa5d5091344489b061626e657b8b, type: 2}
-    m_Threshold: 0.22857144
+    m_Threshold: 0.13714287
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -73,7 +73,7 @@ BlendTree:
   m_BlendParameter: JoystickX
   m_BlendParameterY: JoystickY
   m_MinThreshold: 0
-  m_MaxThreshold: 0.22857144
+  m_MaxThreshold: 0.13714287
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
   m_BlendType: 1
